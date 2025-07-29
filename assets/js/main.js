@@ -71,9 +71,9 @@ const campaignSwiper = new Swiper("[data-campaign-swiper]", {
   },
 });
 
-// 
+//
 const adjustLayout = () => {
-  if (isMobile.matches) return
+  if (isMobile.matches) return;
 
   const [
     swiperContainer,
@@ -91,20 +91,31 @@ const adjustLayout = () => {
 
   const browserWidth = window.innerWidth;
   const browserHeight = window.innerHeight;
-  const imageAspectRatio = 578 / 719; // image ratio
+  const imageAspectRatio = 578 / 719; // original image ratio
 
-  // calculate maximum size for swiper based on image aspect ratio (object-fit: contain)
-  const maxSwiperWidth = browserWidth * 0.9; // 90% width limit
-  const maxSwiperHeight = browserHeight * 0.9; // 90% height limit
-  let swiperWidth = maxSwiperWidth;
+  // calculate swiper size based on desired ratio at 1440x779
+  const targetWidth = 1156; // 1440 - 2*142
+  const targetHeight = 719; // 779 - 2*30
+
+  // calculate the required percentage
+  const widthRatio = targetWidth / 1440;
+  const heightRatio = targetHeight / 779;
+
+  // apply ratio to current viewport
+  const desiredSwiperWidth = browserWidth * widthRatio;
+  const desiredSwiperHeight = browserHeight * heightRatio;
+
+  // calculate actual size based on image aspect ratio constraint
+  let swiperWidth = desiredSwiperWidth;
   let swiperHeight = swiperWidth / 2 / imageAspectRatio;
 
-  if (swiperHeight > maxSwiperHeight) {
-    swiperHeight = maxSwiperHeight;
+  // check height constraint
+  if (swiperHeight > desiredSwiperHeight) {
+    swiperHeight = desiredSwiperHeight;
     swiperWidth = swiperHeight * 2 * imageAspectRatio;
   }
 
-  // calculate sidebar size
+  // calculate sidebar from calculated swiper size
   const horizontalSidebarWidth = (browserWidth - swiperWidth) / 2;
   const verticalSidebarHeight = (browserHeight - swiperHeight) / 2;
 
