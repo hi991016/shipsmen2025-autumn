@@ -30,14 +30,10 @@ body {
   color: var(--main-text-cl);
   font-family: var(--main-fonts);
   font-weight: 400;
-  font-size: 1.6rem;
-  line-height: 1;
+  font-size: 1.5rem;
+  line-height: 1.14;
   position: relative;
   overflow-x: hidden;
-
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
 
   transition: background-color 0.5s;
 
@@ -57,6 +53,7 @@ body {
 
   &.fadeout::after {
     opacity: 1;
+    pointer-events: auto;
   }
 }
 
@@ -64,7 +61,6 @@ body {
 main {
   flex: 1;
   overflow: hidden;
-  // &:not(.page) {}
 }
 
 ::selection {
