@@ -64,12 +64,65 @@ const campaignSwiper = new Swiper("[data-campaign-swiper]", {
       slidesPerGroup: 1,
     },
     1024: {
-      allowTouchMove: false,
+      // allowTouchMove: false,
       slidesPerView: 2,
       slidesPerGroup: 2,
     },
   },
 });
+
+// 
+const adjustLayout = () => {
+  if (isMobile.matches) return
+
+  const [
+    swiperContainer,
+    topSidebar,
+    bottomSidebar,
+    leftSidebar,
+    rightSidebar,
+  ] = [
+    document.querySelector("[data-campaign-swiper]"),
+    document.querySelector("[data-side-top]"),
+    document.querySelector("[data-side-bottom"),
+    document.querySelector("[data-side-left"),
+    document.querySelector("[data-side-right"),
+  ];
+
+  const browserWidth = window.innerWidth;
+  const browserHeight = window.innerHeight;
+  const imageAspectRatio = 578 / 719; // image ratio
+
+  // calculate maximum size for swiper based on image aspect ratio (object-fit: contain)
+  const maxSwiperWidth = browserWidth * 0.9; // 90% width limit
+  const maxSwiperHeight = browserHeight * 0.9; // 90% height limit
+  let swiperWidth = maxSwiperWidth;
+  let swiperHeight = swiperWidth / 2 / imageAspectRatio;
+
+  if (swiperHeight > maxSwiperHeight) {
+    swiperHeight = maxSwiperHeight;
+    swiperWidth = swiperHeight * 2 * imageAspectRatio;
+  }
+
+  // calculate sidebar size
+  const horizontalSidebarWidth = (browserWidth - swiperWidth) / 2;
+  const verticalSidebarHeight = (browserHeight - swiperHeight) / 2;
+
+  // apply size for sidebar
+  topSidebar.style.height = `${verticalSidebarHeight}px`;
+  bottomSidebar.style.height = `${verticalSidebarHeight}px`;
+  leftSidebar.style.width = `${horizontalSidebarWidth}px`;
+  rightSidebar.style.width = `${horizontalSidebarWidth}px`;
+  swiperContainer.style.width = `${swiperWidth}px`;
+  swiperContainer.style.height = `${swiperHeight}px`;
+
+  // update swiper after resizing
+  campaignSwiper.update();
+
+  // fuck, mệt vl
+};
+adjustLayout();
+window.addEventListener("resize", adjustLayout);
 
 // ===== event swiper =====
 const [btnEnter] = [document.querySelector("[data-ships-enter]")];
