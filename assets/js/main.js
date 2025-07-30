@@ -25,6 +25,34 @@ const appHeight = () => {
 };
 window.addEventListener("resize", appHeight);
 
+// ===== popup =====
+// # close
+const closePopupAll = () => {
+  const popups = document.querySelectorAll("[data-popup]");
+  const itemCredits = document.querySelectorAll("[data-items]");
+  itemCredits.forEach((item) => {
+    item.style.opacity = "1";
+  });
+  popups.forEach((item) => {
+    item.classList.remove("--show");
+  });
+};
+
+// # show
+const itemElements = document.querySelectorAll("[data-items]");
+itemElements.forEach((itemElement) => {
+  itemElement.addEventListener("click", () => {
+    closePopupAll();
+    const slide = itemElement.closest(".swiper-slide");
+    const popupElement = slide.querySelector("[data-popup]");
+
+    if (popupElement) {
+      itemElement.style.opacity = "0";
+      popupElement.classList.add("--show");
+    }
+  });
+});
+
 // ===== swiper =====
 const [btnShipsEnter, btnShipsPrev, btnCampaignPrev, fadeIn] = [
   document.querySelector("[data-ships-enter]"),

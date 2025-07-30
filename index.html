@@ -39,6 +39,24 @@
 </head>
 
 <body class="fadeout">
+
+    <!-- // -->
+    <svg style="display: none;">
+        <defs>
+            <symbol id="close-icon" viewBox="0 0 20.707 20.707">
+                <g id="close_button" data-name="close button" transform="translate(7276.46 -3299.54)">
+                    <line id="Line_8" data-name="Line 8" x2="28.284"
+                        transform="translate(-7276.106 3299.893) rotate(45)" fill="none" stroke="#262626"
+                        stroke-width="1" />
+                    <line id="Line_9" data-name="Line 9" x2="28.284"
+                        transform="translate(-7276.106 3319.893) rotate(-45)" fill="none" stroke="#262626"
+                        stroke-width="1" />
+                </g>
+            </symbol>
+        </defs>
+    </svg>
+    <!-- // -->
+
     <!-- @main -->
     <main class="homepage">
         <!-- ships// -->
@@ -149,24 +167,60 @@
                                                     alt="SHIPS for MEN 2025 Autumn | Sailin’" width="578" height="719"
                                                     draggable="false">
                                             </picture>
-                                            <div class="campaign_credit white" data-fade>
-                                                <p data-items="camp1">Item Credit</p>
+                                            <div data-fade>
+                                                <div class="campaign_credit white" data-items>
+                                                    <p>Item Credit</p>
+                                                </div>
                                             </div>
                                             <div class="campaign_heading" data-fade>
                                                 <h2>Dress Style</h2>
                                             </div>
-                                        </div>
-                                        <!-- campaign 2 -->
-                                        <div class="swiper-slide">
-                                            <picture class="campaign_picture">
-                                                <source media="(max-width: 1023px)"
-                                                    data-srcset="/assets/images/campaign_02.jpg">
-                                                <img class="lazy" data-src="/assets/images/campaign_02.jpg"
-                                                    alt="SHIPS for MEN 2025 Autumn | Sailin’" width="578" height="719"
-                                                    draggable="false">
-                                            </picture>
-                                            <div class="campaign_credit right white" data-fade>
-                                                <p data-items="camp2">Item Credit</p>
+                                            <!-- popup 1 -->
+                                            <div class="popup" data-popup>
+                                                <div class="popup_close" onclick="closePopupAll()">
+                                                    <svg width="20.707" height="20.707">
+                                                        <use xlink:href="#close-icon" />
+                                                    </svg>
+                                                </div>
+                                                <div class="popup_inner">
+                                                    <ul class="popup_list">
+                                                        <li>
+                                                            <h2 class="item-name">
+                                                                Skipper ¥28,600 / <br class="sp-only" />
+                                                                ADAWAS × EZ
+                                                            </h2>
+                                                            <a href="#">Buy</a>
+                                                        </li>
+                                                        <li>
+                                                            <h2 class="item-name">
+                                                                Tank Top ¥3,300 / <br class="sp-only" />
+                                                                SHIPS
+                                                            </h2>
+                                                            <a href="#" class="--disable">Buy</a>
+                                                        </li>
+                                                        <li>
+                                                            <h2 class="item-name">
+                                                                Camisole ¥24,200 / <br class="sp-only" />
+                                                                Hériter
+                                                            </h2>
+                                                            <a href="#">Buy</a>
+                                                        </li>
+                                                        <li>
+                                                            <h2 class="item-name">
+                                                                Necklace ¥16,500 / <br class="sp-only" />
+                                                                CATH・S
+                                                            </h2>
+                                                            <a href="#" class="--disable">Buy</a>
+                                                        </li>
+                                                        <li>
+                                                            <h2 class="item-name">
+                                                                NNecklace ¥22,0000 / <br class="sp-only" />
+                                                                ADRIANA PAPPAS
+                                                            </h2>
+                                                            <a href="#">Buy</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- campaign 2 -->
@@ -178,21 +232,50 @@
                                                     alt="SHIPS for MEN 2025 Autumn | Sailin’" width="578" height="719"
                                                     draggable="false">
                                             </picture>
-                                            <div class="campaign_credit right white" data-fade>
-                                                <p data-items="camp2">Item Credit</p>
+                                            <div data-fade>
+                                                <div class="campaign_credit white" data-items>
+                                                    <p>Item Credit</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <!-- campaign 2 -->
-                                        <div class="swiper-slide">
-                                            <picture class="campaign_picture">
-                                                <source media="(max-width: 1023px)"
-                                                    data-srcset="/assets/images/campaign_02.jpg">
-                                                <img class="lazy" data-src="/assets/images/campaign_02.jpg"
-                                                    alt="SHIPS for MEN 2025 Autumn | Sailin’" width="578" height="719"
-                                                    draggable="false">
-                                            </picture>
-                                            <div class="campaign_credit right white" data-fade>
-                                                <p data-items="camp2">Item Credit</p>
+                                            <!-- popup 2 -->
+                                            <div class="popup" data-popup>
+                                                <div class="popup_close" onclick="closePopupAll()">
+                                                    <svg width="20.707" height="20.707">
+                                                        <use xlink:href="#close-icon" />
+                                                    </svg>
+                                                </div>
+                                                <div class="popup_inner">
+                                                    <ul class="popup_list">
+                                                        <li>
+                                                            <h2 class="item-name">
+                                                                Shirt ¥16,940 / <br class="sp-only" />
+                                                                SHIPS
+                                                            </h2>
+                                                            <a href="#">Buy</a>
+                                                        </li>
+                                                        <li>
+                                                            <h2 class="item-name">
+                                                                Camisole ¥17,600 / <br class="sp-only" />
+                                                                Uhr
+                                                            </h2>
+                                                            <a href="#" class="--disable">Buy</a>
+                                                        </li>
+                                                        <li>
+                                                            <h2 class="item-name">
+                                                                Short Pants ¥37,400 / <br class="sp-only" />
+                                                                BAUM UND PFERDGARTEN
+                                                            </h2>
+                                                            <a href="#">Buy</a>
+                                                        </li>
+                                                        <li>
+                                                            <h2 class="item-name">
+                                                                Necklace ¥4,400 / <br class="sp-only" />
+                                                                GRACE FASHION ACCESSORIES
+                                                            </h2>
+                                                            <a href="#" class="--disable">Buy</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
