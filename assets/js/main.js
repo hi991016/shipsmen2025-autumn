@@ -27,11 +27,14 @@ window.addEventListener("resize", appHeight);
 
 // ===== popup =====
 // # close
+const navigaiton = document.querySelector("[data-side-right");
 const closePopupAll = () => {
+  navigaiton.classList.remove("--hide");
   const popups = document.querySelectorAll("[data-popup]");
   const itemCredits = document.querySelectorAll("[data-items]");
   itemCredits.forEach((item) => {
     item.style.opacity = "1";
+    item.nextElementSibling.style.opacity = "1";
   });
   popups.forEach((item) => {
     item.classList.remove("--show");
@@ -48,6 +51,8 @@ itemElements.forEach((itemElement) => {
 
     if (popupElement) {
       itemElement.style.opacity = "0";
+      itemElement.nextElementSibling.style.opacity = "0";
+      navigaiton.classList.add("--hide");
       popupElement.classList.add("--show");
     }
   });
