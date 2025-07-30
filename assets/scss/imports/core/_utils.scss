@@ -1,6 +1,13 @@
 /* Utils
 ------------------------------------------------------------*/
 
+/* fade */
+[data-fade] {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+
 /* lazy load */
 img.lazy {
   opacity: 0;

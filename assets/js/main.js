@@ -26,6 +26,12 @@ const appHeight = () => {
 window.addEventListener("resize", appHeight);
 
 // ===== swiper =====
+const [btnShipsEnter, btnShipsPrev, btnCampaignPrev, fadeIn] = [
+  document.querySelector("[data-ships-enter]"),
+  document.querySelector("[data-ships-prev]"),
+  document.querySelector("[data-campaign-prev]"),
+  document.querySelectorAll("[data-fade]"),
+];
 
 // # ships
 const shipsSwiper = new Swiper("[data-ships-swiper]", {
@@ -34,8 +40,16 @@ const shipsSwiper = new Swiper("[data-ships-swiper]", {
     prevEl: null,
   },
   slidesPerView: 1,
+  slidesPerGroup: 1,
   speed: 1200,
   allowTouchMove: false,
+  on: {
+    slideChange: (sw) => {
+      fadeIn.forEach((item) => {
+        item.classList.toggle("--hide", sw.realIndex !== 1);
+      });
+    },
+  },
 });
 
 // # firstview
@@ -56,6 +70,10 @@ const campaignSwiper = new Swiper("[data-campaign-swiper]", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
   speed: 1200,
   breakpoints: {
     0: {
@@ -64,9 +82,20 @@ const campaignSwiper = new Swiper("[data-campaign-swiper]", {
       slidesPerGroup: 1,
     },
     1024: {
-      // allowTouchMove: false,
+      allowTouchMove: false,
       slidesPerView: 2,
       slidesPerGroup: 2,
+    },
+  },
+  on: {
+    init: (sw) => {
+      fadeIn.forEach((item) => {
+        item.classList.toggle("--hide", sw.realIndex === 0);
+      });
+    },
+    slideChange: (sw) => {
+      btnCampaignPrev.style.display = sw.realIndex === 0 ? "none" : "block";
+      btnShipsPrev.style.display = sw.realIndex === 0 ? "block" : "none";
     },
   },
 });
@@ -136,10 +165,12 @@ adjustLayout();
 window.addEventListener("resize", adjustLayout);
 
 // ===== event swiper =====
-const [btnEnter] = [document.querySelector("[data-ships-enter]")];
-
-btnEnter?.addEventListener("click", () => {
+btnShipsEnter?.addEventListener("click", () => {
   shipsSwiper.slideNext();
+});
+
+btnShipsPrev?.addEventListener("click", () => {
+  shipsSwiper.slidePrev();
 });
 
 // ### ===== ONLOAD ===== ###
