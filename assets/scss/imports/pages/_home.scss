@@ -269,6 +269,7 @@
         pointer-events: none;
         width: 100% !important;
         transition: opacity 0.2s ease;
+        will-change: transform;
 
         &.--hide {
           opacity: 0;
