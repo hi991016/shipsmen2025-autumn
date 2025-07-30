@@ -263,7 +263,6 @@
         top: 0;
         z-index: 1;
         background: transparent;
-        width: 100%;
         height: calc(100% - 69px);
         mix-blend-mode: difference;
         pointer-events: none;
@@ -281,7 +280,6 @@
         position: initial;
         transform: none;
         pointer-events: auto;
-        height: 100%;
       }
 
       &_btn {
@@ -340,6 +338,7 @@
         justify-content: center;
         align-items: center;
         position: relative;
+        background: var(--white-cl);
       }
 
       .swiper-slide-active [data-fade] {
@@ -444,9 +443,26 @@
     }
 
     &_picture {
+      width: 100%;
+
       img {
         object-fit: contain;
         object-position: center;
+      }
+
+      &.--medium {
+        padding: 0 5.486vw;
+      }
+
+      &.--camp6 {
+        max-width: 320px;
+        padding-bottom: 20px;
+        margin-right: 20px;
+        margin-left: auto;
+
+        img {
+          object-position: bottom;
+        }
       }
 
       @include maxW {
@@ -454,6 +470,25 @@
 
         img {
           object-fit: cover;
+        }
+
+        &.--medium {
+          padding: 0 13.768vw;
+
+          img {
+            object-fit: contain;
+          }
+        }
+
+        &.--camp6 {
+          max-width: 233px;
+          padding-bottom: 0;
+          margin-right: auto;
+
+          img {
+            object-fit: contain;
+            object-position: center;
+          }
         }
       }
     }
