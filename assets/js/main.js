@@ -175,7 +175,6 @@ const adjustLayout = () => {
   leftSidebar.style.width = `${horizontalSidebarWidth}px`;
   rightSidebar.style.width = `${horizontalSidebarWidth}px`;
   swiperContainer.style.width = `${swiperWidth}px`;
-  console.log("swiperWidth", swiperWidth);
   swiperContainer.style.height = `${swiperHeight}px`;
 
   // update swiper after resizing
@@ -200,7 +199,7 @@ document.body.addEventListener("click", (event) => {
     campaignSwiper.slideTo(0, 1200);
     setTimeout(() => {
       shipsSwiper.slidePrev();
-    }, 1100);
+    }, 1000);
   }
 });
 

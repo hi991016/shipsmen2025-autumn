@@ -37,6 +37,7 @@
     top: 100px;
     right: min(80px, 5.556vw);
     cursor: pointer;
+    z-index: 1;
 
     @include maxW {
       svg {
